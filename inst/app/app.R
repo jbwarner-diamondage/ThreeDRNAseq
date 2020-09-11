@@ -16,7 +16,7 @@ cat('If you have questions to raise or are experiencing difficulties using the 3
     'Github Issues: https://github.com/wyguo/ThreeDRNAseq/issues','\n',
     'Group group: https://groups.google.com/forum/#!forum/3d-rna-seq-app-user-group','\n')
 cat('Or contact us:','\n',
-    'Dr. Jason B Warner: jason@diamondage.com','\n'
+    'Dr. Jason B Warner: jason@diamondage.com','\n',
     'Dr. Wenbin Guo: wenbin.guo@hutton.ac.uk','\n',
     'Dr. Runxuan Zhang: runxuan.zhang@hutton.ac.uk','\n')
 
