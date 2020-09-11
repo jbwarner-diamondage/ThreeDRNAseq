@@ -186,7 +186,8 @@ observeEvent(input$mapping_file_button,{
 observe({
   file_path <- input$sample_file_button$datapath
   if (is.null(file_path) | length(file_path)==0)
-    return(NULL)
+    return("/home/jwarner/data/Arabidopsis_cold/metatable.csv")
+    file_path <- input$sample_file_button$datapath
   withProgress(message = 'Loading metadata table...', value = 0, {
     if(!grepl('.csv',file_path))
       return(showmessage('Please select a file of required format.',type = 'error'))
