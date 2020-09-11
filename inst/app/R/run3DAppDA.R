@@ -3,9 +3,9 @@
 #' @param ... additional arguments passed to \code{runApp} in \code{\link{shiny}} R package.
 #' @export
 #' @examples 
-#' run3DApp()
-run3DApp <- function(wd=getwd(),...){
-  app.from <- system.file("app", package = "ThreeDRNAseq")
+#' run3DAppDA()
+run3DAppDA <- function(wd=getwd(),...){
+  app.from <- system.file("app", package = "ThreeDRNAseqDA")
   app.to <- paste0(wd,'/app')
   if(!all(list.files(app.from) %in% list.files(app.to)))
   message(paste0('Downloading 3D RNA-seq App:\n ',wd))
@@ -22,7 +22,7 @@ run3DApp <- function(wd=getwd(),...){
 #' @examples 
 #' getExample()
 getExample <- function(wd=getwd()){
-  exp.from <- system.file("example_data", package = "ThreeDRNAseq")
+  exp.from <- system.file("example_data", package = "ThreeDRNAseqDA")
   exp.to <- paste0(wd,'/example_data')
   if(!all(list.files(exp.from) %in% list.files(exp.to)))
     message(paste0('Downloading example data to:\n ',wd))

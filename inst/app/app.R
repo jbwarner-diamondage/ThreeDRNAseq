@@ -16,6 +16,7 @@ cat('If you have questions to raise or are experiencing difficulties using the 3
     'Github Issues: https://github.com/wyguo/ThreeDRNAseq/issues','\n',
     'Group group: https://groups.google.com/forum/#!forum/3d-rna-seq-app-user-group','\n')
 cat('Or contact us:','\n',
+    'Dr. Jason B Warner: jason@diamondage.com','\n'
     'Dr. Wenbin Guo: wenbin.guo@hutton.ac.uk','\n',
     'Dr. Runxuan Zhang: runxuan.zhang@hutton.ac.uk','\n')
 
@@ -68,7 +69,7 @@ mainheader <- dashboardHeader(
 mainsidebar <- dashboardSidebar(
   width = 190,
   sidebarMenu(id = "tabs",
-    menuItem(text = 'Introduction',tabName = 'introduction',icon = icon("user"),selected = T),
+    #menuItem(text = 'Introduction Temp',tabName = 'introduction',icon = icon("user"),selected = T),
     menuItem(text = 'Data generation',tabName = 'generation',icon = icon("table"),selected = F),
     menuItem(text = 'Data pre-processing',tabName = 'preprocessing',icon = icon("filter"),startExpanded = F,selected = F),
     menuItem(text = '3D analysis',tabName = 'ddd',icon = icon("cubes",lib='font-awesome'),selected = F),
@@ -114,7 +115,7 @@ mainbody <- dashboardBody(
   # tags$script(inactivity),### not close browser
   tabItems(
     #=======================>> Introduction panel <<==========================
-    source(file.path("source/ui", "ui_introduction.R"),local = TRUE)$value,
+    #isource(file.path("source/ui", "ui_introduction.R"),local = TRUE)$value,
     
     #=======================>> Data generation panel <<==========================
     source(file.path("source/ui", "ui_generation.R"),local = TRUE)$value,
