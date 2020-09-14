@@ -148,6 +148,7 @@ observeEvent(input$mapping_file_button,{
     colnames(mapping) <- c('TXNAME','GENEID')
     rownames(mapping) <- mapping$TXNAME
     DDD.data$mapping <- mapping
+    incProgress(1)
   showmessage('Loading transcript-gene mapping...',
               action = HTML("<i style='font-size:35px;' class='fas fa-coffee'> ... ...</i>"),
               duration = NULL,id = 'message_id')
@@ -197,6 +198,7 @@ observe({
     file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
     samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
     DDD.data$samples0 <- samples0
+    incProgress(1)
     #return(NULL)
   withProgress(message = 'Loading metadata table...', value = 0, {
     if(!grepl('.csv',file_path))
