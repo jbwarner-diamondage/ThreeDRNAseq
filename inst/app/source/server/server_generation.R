@@ -103,8 +103,8 @@ observe({
     #=================================================
 
     # DDD.data$folder <- getwd()##for test
-    DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold/"
-    DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold/"
+    DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold"
+    DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold"
     DDD.data$folder <- DDD.data$upload_folder
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
@@ -112,8 +112,8 @@ observe({
     DDD.data$report.folder <- file.path(DDD.data$folder,'report')
   } else {
     #DDD.data$folder <- getwd()
-    DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold/"
-    DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold/"
+    DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold"
+    DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold"
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
     DDD.data$result.folder <- file.path(DDD.data$folder,'result')
@@ -144,7 +144,7 @@ observe({
   cat(DDD.data$report.folder,'\n')
   cat('\n')
   file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
-  message('Loading ',file_path,'\n')
+  cat('Loading ',file_path,'\n')
   #file_path <- "/home/jwarner/data/Embryonic_mice/mapping.csv"
   mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
   colnames(mapping) <- c('TXNAME','GENEID')
@@ -152,12 +152,12 @@ observe({
   DDD.data$mapping <- mapping
   
   file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
-  message('Loading ',file_path,'\n')
+  cat('Loading ',file_path,'\n')
   samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
   DDD.data$samples0 <- samples0
   
   file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
-  message('Loading ',file_path,'\n')
+  cat('Loading ',file_path,'\n')
   pos <- regexpr("\\.([[:alnum:]]+)$", file_path)
   zipp <- ifelse(pos > -1L, substring(file_path, pos + 1L), "")
   if(zipp == 'zip'){
