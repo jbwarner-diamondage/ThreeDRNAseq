@@ -21,6 +21,12 @@ output$show_how_to_generate_data <- renderUI({
   colnames(mapping) <- c('TXNAME','GENEID')
   rownames(mapping) <- mapping$TXNAME
   DDD.data$mapping <- mapping
+  
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
+  message('Loading ',file_path,'\n')
+  samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
+  DDD.data$samples0 <- samples0
+  incProgress(1)
 
   if(F){
     tagList(
@@ -152,15 +158,8 @@ observe({
 observeEvent(input$mapping_file_button,{
   file_path <- input$mapping_file_button$datapath #
   if (is.null(file_path) | length(file_path)==0)
-    #return(NULL)
-    file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
-    message('Loading ',file_path,'\n')
-    #file_path <- "/home/jwarner/data/Embryonic_mice/mapping.csv"
-    mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
-    colnames(mapping) <- c('TXNAME','GENEID')
-    rownames(mapping) <- mapping$TXNAME
-    DDD.data$mapping <- mapping
-    incProgress(1)
+    return(NULL)
+
   showmessage('Loading transcript-gene mapping...',
               action = HTML("<i style='font-size:35px;' class='fas fa-coffee'> ... ...</i>"),
               duration = NULL,id = 'message_id')
@@ -205,14 +204,6 @@ observe({
   #file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
   file_path <- input$sample_file_button$datapath
   if (is.null(file_path) | length(file_path)==0)
-    #return("/home/jwarner/data/Arabidopsis_cold/metatable.csv")
-    #file_path <- input$sample_file_button$datapath
-    file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
-    message('Loading ',file_path,'\n')
-    #file_path <- "/home/jwarner/data/Embryonic_mice/metatable.csv"
-    samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
-    DDD.data$samples0 <- samples0
-    incProgress(1)
     return(NULL)
   withProgress(message = 'Loading metadata table...', value = 0, {
     if(!grepl('.csv',file_path))
