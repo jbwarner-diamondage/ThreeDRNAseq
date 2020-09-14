@@ -169,6 +169,7 @@ observe({
   name.idx <- basename(dirname(fileNames0))
   names(fileNames0) <- name.idx
   DDD.data$quant_fileNames <- fileNames0
+  cat(DDD.data$quant_fileNames)
 })
 
 ##----------Step 3: Inputs of 3D analysis------------
