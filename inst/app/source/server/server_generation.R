@@ -287,7 +287,7 @@ observe({
       name.idx <- basename(dirname(fileNames0))
       names(fileNames0) <- name.idx
       DDD.data$quant_fileNames <- fileNames0
-      #return(NULL)
+      return(NULL)
 
     # if(!grepl('.zip',file_path)){
     #   showmessage('Please select a zipped file of required format "xxx.zip".')
