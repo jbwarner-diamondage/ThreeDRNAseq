@@ -142,13 +142,13 @@ observe({
 observeEvent(input$mapping_file_button,{
   file_path <- input$mapping_file_button$datapath #
   if (is.null(file_path) | length(file_path)==0)
-    #return(NULL)
-    file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
-    mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
-    colnames(mapping) <- c('TXNAME','GENEID')
-    rownames(mapping) <- mapping$TXNAME
-    DDD.data$mapping <- mapping
-    incProgress(1)
+    return(NULL)
+    #file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
+    #mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
+    #colnames(mapping) <- c('TXNAME','GENEID')
+    #rownames(mapping) <- mapping$TXNAME
+    #DDD.data$mapping <- mapping
+    #incProgress(1)
   showmessage('Loading transcript-gene mapping...',
               action = HTML("<i style='font-size:35px;' class='fas fa-coffee'> ... ...</i>"),
               duration = NULL,id = 'message_id')
