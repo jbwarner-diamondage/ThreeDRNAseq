@@ -103,8 +103,8 @@ observe({
     #=================================================
 
     # DDD.data$folder <- getwd()##for test
-    DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold"
-    DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold"
+    DDD.data$folder <- "/home/rshinyuser/rstudio_dev/RShiny_RNASeq/ThreeDRNAseq/data/3D_RNAseq_example_data/Arabidopsis_cold"
+    DDD.data$upload_folder <- "/home/rshinyuser/rstudio_dev/RShiny_RNASeq/ThreeDRNAseq/data/3D_RNAseq_example_data/Arabidopsis_cold"
     DDD.data$folder <- DDD.data$upload_folder
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
@@ -112,8 +112,8 @@ observe({
     DDD.data$report.folder <- file.path(DDD.data$folder,'report')
   } else {
     #DDD.data$folder <- getwd()
-    DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold"
-    DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold"
+    DDD.data$folder <- "/home/rshinyuser/rstudio_dev/RShiny_RNASeq/ThreeDRNAseq/data/3D_RNAseq_example_data/Arabidopsis_cold"
+    DDD.data$upload_folder <- "/home/rshinyuser/rstudio_dev/RShiny_RNASeq/ThreeDRNAseq/data/3D_RNAseq_example_data/Arabidopsis_cold"
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
     DDD.data$result.folder <- file.path(DDD.data$folder,'result')
