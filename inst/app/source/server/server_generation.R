@@ -195,11 +195,11 @@ observe({
   if (is.null(file_path) | length(file_path)==0)
     #return("/home/jwarner/data/Arabidopsis_cold/metatable.csv")
     #file_path <- input$sample_file_button$datapath
-    file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
-    samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
-    DDD.data$samples0 <- samples0
-    incProgress(1)
-    #return(NULL)
+    #file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
+    #samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
+    #DDD.data$samples0 <- samples0
+    #incProgress(1)
+    return(NULL)
   withProgress(message = 'Loading metadata table...', value = 0, {
     if(!grepl('.csv',file_path))
       return(showmessage('Please select a file of required format.',type = 'error'))
