@@ -1,9 +1,9 @@
-Package: ThreeDRNAseq
+Package: ThreeDRNAseqDA
 Type: Package
 Title: 3D RNA-seq App enables RNA-seq data analysis to be done only within 3 Days.
-Version: 2.0.1
-Author: Wenbin Guo <wenbin.guo@hutton.ac.uk>
-Maintainer: Wenbin Guo <wenbin.guo@hutton.ac.uk>
+Version: 2.1
+Author: Jason Warner <jason@diamondage.com>
+Maintainer: Jason Warner <jason@diamondage.com>
 Description: This package provides an interactive graphical user interface (GUI) for RNA-seq 
     data differential expression (DE), differential alternative splicing (DAS) and differential 
     transcript usage (DTU) analyses based on two popular pipelines: limma and edgeR. The 3D 
