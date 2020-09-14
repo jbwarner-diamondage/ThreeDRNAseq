@@ -1,7 +1,7 @@
 Package: ThreeDRNAseqDA
 Type: Package
 Title: 3D RNA-seq App enables RNA-seq data analysis to be done only within 3 Days.
-Version: 2.1
+Version: 2.1.1
 Author: Jason Warner <jason@diamondage.com>
 Maintainer: Jason Warner <jason@diamondage.com>
 Description: This package provides an interactive graphical user interface (GUI) for RNA-seq 
