@@ -144,6 +144,7 @@ observeEvent(input$mapping_file_button,{
   if (is.null(file_path) | length(file_path)==0)
     #return(NULL)
     file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
+    message('Loading ',file_path,'\n')
     #file_path <- "/home/jwarner/data/Embryonic_mice/mapping.csv"
     mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
     colnames(mapping) <- c('TXNAME','GENEID')
@@ -197,6 +198,7 @@ observe({
     #return("/home/jwarner/data/Arabidopsis_cold/metatable.csv")
     #file_path <- input$sample_file_button$datapath
     file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
+    message('Loading ',file_path,'\n')
     #file_path <- "/home/jwarner/data/Embryonic_mice/metatable.csv"
     samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
     DDD.data$samples0 <- samples0
@@ -275,18 +277,19 @@ observe({
   if(DDD.data$docker_image){
     file_path <- input$quant_zip_button$datapath
     if (is.null(file_path) | length(file_path)==0)
-      file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
-      pos <- regexpr("\\.([[:alnum:]]+)$", file_path)
-      zipp <- ifelse(pos > -1L, substring(file_path, pos + 1L), "")
-      if(zipp == 'zip'){
-        unzipfun <- unzip
-        fileNames0 <- unzip(file_path,list = T)$Name
-      }
-      idx <- grep(pattern = '/quant.sf$',fileNames0)
-      fileNames0 <- fileNames0[idx]
-      name.idx <- basename(dirname(fileNames0))
-      names(fileNames0) <- name.idx
-      DDD.data$quant_fileNames <- fileNames0
+      #file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
+    
+      #pos <- regexpr("\\.([[:alnum:]]+)$", file_path)
+      #zipp <- ifelse(pos > -1L, substring(file_path, pos + 1L), "")
+      #if(zipp == 'zip'){
+      #  unzipfun <- unzip
+     #   fileNames0 <- unzip(file_path,list = T)$Name
+      #}
+      #idx <- grep(pattern = '/quant.sf$',fileNames0)
+      #fileNames0 <- fileNames0[idx]
+     # name.idx <- basename(dirname(fileNames0))
+      #names(fileNames0) <- name.idx
+     # DDD.data$quant_fileNames <- fileNames0
       return(NULL)
 
     # if(!grepl('.zip',file_path)){
