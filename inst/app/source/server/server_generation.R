@@ -271,8 +271,8 @@ observe({
   if(DDD.data$docker_image){
     file_path <- input$quant_zip_button$datapath
     if (is.null(file_path) | length(file_path)==0)
-      file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
-      #return(NULL)
+      #file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
+      return(NULL)
 
     # if(!grepl('.zip',file_path)){
     #   showmessage('Please select a zipped file of required format "xxx.zip".')
