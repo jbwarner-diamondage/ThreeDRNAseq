@@ -12,8 +12,15 @@ observeEvent(input$tabs,{
 
 output$show_how_to_generate_data <- renderUI({
   # if(!DDD.data$docker_image){
+ # file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
+  #message('Loading ',file_path,'\n')
   file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
   message('Loading ',file_path,'\n')
+  #file_path <- "/home/jwarner/data/Embryonic_mice/mapping.csv"
+  mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
+  colnames(mapping) <- c('TXNAME','GENEID')
+  rownames(mapping) <- mapping$TXNAME
+  DDD.data$mapping <- mapping
 
   if(F){
     tagList(
