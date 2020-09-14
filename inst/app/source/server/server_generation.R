@@ -184,7 +184,8 @@ observeEvent(input$mapping_file_button,{
 
 ####sample
 observe({
-  file_path <- input$sample_file_button$datapath
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
+  #file_path <- input$sample_file_button$datapath
   if (is.null(file_path) | length(file_path)==0)
     #return("/home/jwarner/data/Arabidopsis_cold/metatable.csv")
     #file_path <- input$sample_file_button$datapath
