@@ -189,6 +189,8 @@ observe({
     #return("/home/jwarner/data/Arabidopsis_cold/metatable.csv")
     #file_path <- input$sample_file_button$datapath
     file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
+    samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
+    DDD.data$samples0 <- samples0
     #return(NULL)
   withProgress(message = 'Loading metadata table...', value = 0, {
     if(!grepl('.csv',file_path))
