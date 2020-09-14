@@ -26,7 +26,20 @@ output$show_how_to_generate_data <- renderUI({
   message('Loading ',file_path,'\n')
   samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
   DDD.data$samples0 <- samples0
-  incProgress(1)
+  
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
+  
+  pos <- regexpr("\\.([[:alnum:]]+)$", file_path)
+  zipp <- ifelse(pos > -1L, substring(file_path, pos + 1L), "")
+  if(zipp == 'zip'){
+    unzipfun <- unzip
+     fileNames0 <- unzip(file_path,list = T)$Name
+  }
+  idx <- grep(pattern = '/quant.sf$',fileNames0)
+  fileNames0 <- fileNames0[idx]
+  name.idx <- basename(dirname(fileNames0))
+  names(fileNames0) <- name.idx
+  DDD.data$quant_fileNames <- fileNames0
 
   if(F){
     tagList(
