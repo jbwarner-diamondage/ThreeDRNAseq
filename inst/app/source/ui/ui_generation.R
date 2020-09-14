@@ -31,7 +31,7 @@ tabItem("generation",
           ##----------Step 3: Inputs of 3D analysis------------
           box(title = 'Step 1: Input data of 3D analysis',
               width=6,status = 'primary', solidHeader = T,
-              h4('It may take a while for the App to respond for big dataset. Please wait until one process done before go to next step.'),
+              h4('It may take a while for the app to respond for big dataset. Please wait until one process done before go to next step.'),
               column(width = 12,
                      # wellPanel(
                      # style = "background-color: #ffffff;",
