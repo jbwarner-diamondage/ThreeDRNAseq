@@ -28,7 +28,7 @@ output$show_how_to_generate_data <- renderUI({
   DDD.data$samples0 <- samples0
   
   file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
-  
+  message('Loading ',file_path,'\n')
   pos <- regexpr("\\.([[:alnum:]]+)$", file_path)
   zipp <- ifelse(pos > -1L, substring(file_path, pos + 1L), "")
   if(zipp == 'zip'){
