@@ -14,32 +14,7 @@ output$show_how_to_generate_data <- renderUI({
   # if(!DDD.data$docker_image){
  # file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
   #message('Loading ',file_path,'\n')
-  file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
-  message('Loading ',file_path,'\n')
-  #file_path <- "/home/jwarner/data/Embryonic_mice/mapping.csv"
-  mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
-  colnames(mapping) <- c('TXNAME','GENEID')
-  rownames(mapping) <- mapping$TXNAME
-  DDD.data$mapping <- mapping
   
-  file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
-  message('Loading ',file_path,'\n')
-  samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
-  DDD.data$samples0 <- samples0
-  
-  file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
-  message('Loading ',file_path,'\n')
-  pos <- regexpr("\\.([[:alnum:]]+)$", file_path)
-  zipp <- ifelse(pos > -1L, substring(file_path, pos + 1L), "")
-  if(zipp == 'zip'){
-    unzipfun <- unzip
-     fileNames0 <- unzip(file_path,list = T)$Name
-  }
-  idx <- grep(pattern = '/quant.sf$',fileNames0)
-  fileNames0 <- fileNames0[idx]
-  name.idx <- basename(dirname(fileNames0))
-  names(fileNames0) <- name.idx
-  DDD.data$quant_fileNames <- fileNames0
 
   if(F){
     tagList(
@@ -128,13 +103,17 @@ observe({
     #=================================================
 
     # DDD.data$folder <- getwd()##for test
+    DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold/"
+    DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold/"
     DDD.data$folder <- DDD.data$upload_folder
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
     DDD.data$result.folder <- file.path(DDD.data$folder,'result')
     DDD.data$report.folder <- file.path(DDD.data$folder,'report')
   } else {
-    DDD.data$folder <- getwd()
+    #DDD.data$folder <- getwd()
+    DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold/"
+    DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold/"
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
     DDD.data$result.folder <- file.path(DDD.data$folder,'result')
@@ -164,6 +143,32 @@ observe({
   cat(DDD.data$result.folder,'\n')
   cat(DDD.data$report.folder,'\n')
   cat('\n')
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
+  message('Loading ',file_path,'\n')
+  #file_path <- "/home/jwarner/data/Embryonic_mice/mapping.csv"
+  mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
+  colnames(mapping) <- c('TXNAME','GENEID')
+  rownames(mapping) <- mapping$TXNAME
+  DDD.data$mapping <- mapping
+  
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
+  message('Loading ',file_path,'\n')
+  samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
+  DDD.data$samples0 <- samples0
+  
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
+  message('Loading ',file_path,'\n')
+  pos <- regexpr("\\.([[:alnum:]]+)$", file_path)
+  zipp <- ifelse(pos > -1L, substring(file_path, pos + 1L), "")
+  if(zipp == 'zip'){
+    unzipfun <- unzip
+    fileNames0 <- unzip(file_path,list = T)$Name
+  }
+  idx <- grep(pattern = '/quant.sf$',fileNames0)
+  fileNames0 <- fileNames0[idx]
+  name.idx <- basename(dirname(fileNames0))
+  names(fileNames0) <- name.idx
+  DDD.data$quant_fileNames <- fileNames0
 })
 
 ##----------Step 3: Inputs of 3D analysis------------
