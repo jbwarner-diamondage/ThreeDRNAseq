@@ -171,7 +171,7 @@ observe({
   fileNames0 <- list.files(file_path,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
   
   file.copy(from=filestocopy, to=DDD.data$upload_folder, 
-            overwrite = TRUE, recursive = FALSE, 
+            overwrite = TRUE, recursive = TRUE, 
             copy.mode = TRUE)
   DDD.data$quant_fileNames <- list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
   cat(DDD.data$quant_fileNames)
