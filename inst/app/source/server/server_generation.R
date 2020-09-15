@@ -484,6 +484,7 @@ observeEvent(input$samples_update,{
 
   ##check quant files names
   quantfile2check <- gsub('.tabular','',DDD.data$samples0[,input$quant_column])
+  cat("2check: ", DDD.data$samples0[,input$quant_column])
   idx <- grepl(pattern = paste0(quantfile2check,collapse = '|'),DDD.data$quant_fileNames)
   if(!all(idx==T)){
     showmessage('The quantification file names in the sample meta-table do not match to the quantification files.
