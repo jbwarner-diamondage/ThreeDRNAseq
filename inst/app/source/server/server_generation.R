@@ -164,10 +164,14 @@ observe({
   
   if(!exists("DEFAULT_QUANT_METHOD")){
     DEFAULT_QUANT_METHOD<-"salmon"
+  }
+  
+  if(DEFAULT_QUANT_METHOD == "salmon"){
     pattern<-"quant.sf"
   }else{
     pattern<-"abundance.tsv"
   }
+
   
   if(exists("DEFAULT_QUANT_PATH")){
     file_path <- DEFAULT_QUANT_PATH
