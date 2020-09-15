@@ -386,6 +386,7 @@ observe({
       DDD.data$quant_fileNames <- fileNames0
       unzipfun(file_path, list = F, exdir = DDD.data$upload_folder)
       incProgress(1)
+      cat(DDD.data$quant_fileNames)
       endmessage(text = 'Unzip quantification zipped file')
       # cat(DDD.data$upload_folder)
     })
