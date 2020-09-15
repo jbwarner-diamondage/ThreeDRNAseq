@@ -103,17 +103,17 @@ observe({
     #=================================================
 
     # DDD.data$folder <- getwd()##for test
-    DDD.data$folder <- "/home/rshinyuser/rstudio_dev/RShiny_RNASeq/ThreeDRNAseq/data/3D_RNAseq_example_data/Arabidopsis_cold"
-    DDD.data$upload_folder <- "/home/rshinyuser/rstudio_dev/RShiny_RNASeq/ThreeDRNAseq/data/3D_RNAseq_example_data/Arabidopsis_cold"
+    #DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold"
+    #DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold"
     DDD.data$folder <- DDD.data$upload_folder
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
     DDD.data$result.folder <- file.path(DDD.data$folder,'result')
     DDD.data$report.folder <- file.path(DDD.data$folder,'report')
   } else {
-    #DDD.data$folder <- getwd()
-    DDD.data$folder <- "/home/rshinyuser/rstudio_dev/RShiny_RNASeq/ThreeDRNAseq/data/3D_RNAseq_example_data/Arabidopsis_cold"
-    DDD.data$upload_folder <- "/home/rshinyuser/rstudio_dev/RShiny_RNASeq/ThreeDRNAseq/data/3D_RNAseq_example_data/Arabidopsis_cold"
+    DDD.data$folder <- getwd()
+    #DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold"
+    #DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold"
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
     DDD.data$result.folder <- file.path(DDD.data$folder,'result')
@@ -156,19 +156,19 @@ observe({
   samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
   DDD.data$samples0 <- samples0
   
-  file_path <- "/home/jwarner/data/Arabidopsis_cold/quant.zip"
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/quant/"
   cat('Loading ',file_path,'\n')
-  pos <- regexpr("\\.([[:alnum:]]+)$", file_path)
-  zipp <- ifelse(pos > -1L, substring(file_path, pos + 1L), "")
-  if(zipp == 'zip'){
-    unzipfun <- unzip
-    fileNames0 <- unzip(file_path,list = T)$Name
-  }
-  idx <- grep(pattern = '/quant.sf$',fileNames0)
-  fileNames0 <- fileNames0[idx]
-  name.idx <- basename(dirname(fileNames0))
-  names(fileNames0) <- name.idx
-  DDD.data$quant_fileNames <- fileNames0
+  #pos <- regexpr("\\.([[:alnum:]]+)$", file_path)
+  #zipp <- ifelse(pos > -1L, substring(file_path, pos + 1L), "")
+  #if(zipp == 'zip'){
+  #  unzipfun <- unzip
+  #  fileNames0 <- unzip(file_path,list = T)$Name
+  #}
+  #idx <- grep(pattern = '/quant.sf$',fileNames0)
+  #fileNames0 <- fileNames0[idx]
+  #name.idx <- basename(dirname(fileNames0))
+  #names(fileNames0) <- name.idx
+  DDD.data$quant_fileNames <- list.files(file_path,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
   cat(DDD.data$quant_fileNames)
 })
 
