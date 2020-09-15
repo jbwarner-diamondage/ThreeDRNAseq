@@ -167,9 +167,9 @@ observe({
   fileNames0<-gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE))
   fileNames0<-gsub("/quant","quant", fileNames0)
   
-  DDD.data$quant_fileNames <-  fileNames0
+  #DDD.data$quant_fileNames <-  fileNames0
   #DDD.data$quant_fileNames <-gsub("/quant","quant",DDD.data$quant_fileNames)
-  cat(DDD.data$quant_fileNames,"\n")
+  #cat(DDD.data$quant_fileNames,"\n")
 })
 
 ##----------Step 3: Inputs of 3D analysis------------
