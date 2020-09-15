@@ -584,7 +584,7 @@ observeEvent(input$samples_update,{
 output$mapping_table <- DT::renderDataTable({
   if(is.null(DDD.data$mapping))
     return(NULL)
-  DT::datatable(DDD.data$mapping[1:10,])
+  DT::datatable(DDD.data$mapping[1:8,])
 })
 
 output$sample_table <- DT::renderDataTable({

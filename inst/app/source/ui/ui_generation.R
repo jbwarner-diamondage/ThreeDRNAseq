@@ -141,7 +141,7 @@ tabItem("generation",
           #     HTML('<img style="width: 100%; display: block; margin-left: auto; margin-right: auto;" 
           #          src="contrast_design.png"/>')
           #     ),
-          tabBox(title = 'Visualise sample information and transcript-gene mapping',id = 'uploaded_data', width = 12,side = 'right',selected = 'Sample information',
+          tabBox(title = 'Visualize sample information and transcript-gene mapping',id = 'uploaded_data', width = 12,side = 'right',selected = 'Sample information',
                  tabPanel(title = 'Part of mapping',
                           DT::dataTableOutput('mapping_table')
                  ),
