@@ -695,20 +695,16 @@ DDD.stat <- reactive({
 })
 
 
-output$top.stat.table <- DT::renderDataTable({
+output$top.stat.table <- DT::renderDataTable(DT::datatable( {
   if(is.null(DDD.stat()))
     return(NULL)
   showmessage(text = '3D statistics table',showNoteify = F)
   DDD.stat()
 },options = list(
   scrollX=T,
-  buttons = list("copy", list(
-    extend = "collection", 
-    buttons = c("csv", "excel", "pdf"), 
-    text = "Download"
-  ) ),
+  buttons = c("csv", "excel", "pdf"), 
   columnDefs = list(list(className = 'dt-center',
-                         targets = "_all"))))
+                         targets = "_all")))) )
 ##--------------->> Step 5: profile plot-----------------
 observe({
   if(is.null(DDD.data$samples))
