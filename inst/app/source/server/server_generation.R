@@ -613,18 +613,7 @@ output$sample_table <- DT::renderDataTable({
                     buttons = c('copy', 'csv', 'excel')
                   ),
                   rownames= FALSE,
-                  class = "display") else DT::datatable(DDD.data$samples,extensions = 'Buttons',rownames= FALSE
-                                                        ,options = list(
-                                                          paging = TRUE,
-                                                          searching = TRUE,
-                                                          fixedColumns = TRUE,
-                                                          autoWidth = TRUE,
-                                                          ordering = TRUE,
-                                                          dom = 'tB',
-                                                          buttons = c('copy', 'csv', 'excel')
-                                                        ),
-                                                        rownames= FALSE,
-                                                        class = "display")
+                  class = "display") else DDD.data$samples
 })
 
 ##----------Step 4: Generate gene and transcript read counts and TPMs------------
