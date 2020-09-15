@@ -105,6 +105,7 @@ observe({
     # DDD.data$folder <- getwd()##for test
     #DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold"
     #DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold"
+    source("/home/jwarner/data/experiments/default_data.R")
     DDD.data$folder <- DDD.data$upload_folder
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
@@ -145,7 +146,8 @@ observe({
   cat('\n')
   
   #load default values
-  file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
+  #file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
+  file_path <- DEFAULT_MAPPING_PATH 
   cat('Loading ',file_path,'\n')
 
   mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
@@ -153,12 +155,14 @@ observe({
   rownames(mapping) <- mapping$TXNAME
   DDD.data$mapping <- mapping
   
-  file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
+  #file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
+  file_path <- DEFAULT_META_PATH 
   cat('Loading ',file_path,'\n')
   samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
   DDD.data$samples0 <- samples0
   
-  file_path <- "/home/jwarner/data/Arabidopsis_cold/quant/"
+  #file_path <- "/home/jwarner/data/Arabidopsis_cold/quant/"
+  file_path <- DEFAULT_QUANT_PATH 
   cat('Loading ',file_path,'\n')
 
   fileNames0 <- list.files(file_path,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
