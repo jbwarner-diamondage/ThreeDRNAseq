@@ -165,7 +165,7 @@ observe({
             overwrite = TRUE, recursive = TRUE, 
             copy.mode = TRUE)
   DDD.data$quant_fileNames <- gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE))
-  #cat(DDD.data$quant_fileNames)
+  cat(DDD.data$quant_fileNames,"\n")
 })
 
 ##----------Step 3: Inputs of 3D analysis------------
@@ -490,6 +490,7 @@ observeEvent(input$samples_update,{
   }
 
   quant_fileNames <- file.path(DDD.data$upload_folder,DDD.data$quant_fileNames[quantfile2check])
+  cat("Checking files ",quantfile2check)
   if(any(file.exists(quant_fileNames)==F)){
     showmessage('Transcript quantification files are not found. Please double check: (1) whether you have uploaded the quantification compressed folder and
                 (2) whether the compressed folder name includes special symbols, e.g. extra white space.',
