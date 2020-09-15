@@ -702,6 +702,11 @@ output$top.stat.table <- DT::renderDataTable({
   DDD.stat()
 },options = list(
   scrollX=T,
+  buttons = list("copy", list(
+    extend = "collection", 
+    buttons = c("csv", "excel", "pdf"), 
+    text = "Download"
+  ) ),
   columnDefs = list(list(className = 'dt-center',
                          targets = "_all"))))
 ##--------------->> Step 5: profile plot-----------------
