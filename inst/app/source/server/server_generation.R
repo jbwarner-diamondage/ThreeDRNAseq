@@ -162,20 +162,25 @@ observe({
     DDD.data$samples0 <- samples0
   }
   
-  if(exists("DEFAULT_META_PATH")){
-    file_path <- DEFAULT_QUANT_PATH 
+  if(!exists("DEFAULT_QUANT_METHOD")){
+    DEFAULT_QUANT_METHOD<-"salmon"
+    pattern<-"quant.sf"
+  }else{
+    pattern<-"abundance.tsv"
+  }
+  
+  if(exists("DEFAULT_QUANT_PATH")){
+    file_path <- DEFAULT_QUANT_PATH
+    
     cat('Loading ',file_path,'\n')
-    fileNames0 <- list.files(file_path,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
+    fileNames0 <- list.files(file_path,full.names = TRUE,pattern=pattern,recursive=TRUE)
     file.copy(from=file_path, to=DDD.data$upload_folder, 
               overwrite = TRUE, recursive = TRUE, 
               copy.mode = TRUE)
-    fileNames0<-gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE))
+    fileNames0<-gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern=pattern,recursive=TRUE))
     DDD.data$quant_fileNames <- fileNames0
   }
-  if(!exists("DEFAULT_QUANT_METHOD")){
-    DEFAULT_QUANT_METHOD<-"salmon"
-  }
-    
+
     
 })
 
