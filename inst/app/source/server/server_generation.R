@@ -143,18 +143,20 @@ observe({
   cat(DDD.data$result.folder,'\n')
   cat(DDD.data$report.folder,'\n')
   cat('\n')
-  #file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
-  #cat('Loading ',file_path,'\n')
-
-  #mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
-  #colnames(mapping) <- c('TXNAME','GENEID')
-  #rownames(mapping) <- mapping$TXNAME
-  #DDD.data$mapping <- mapping
   
-  #file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
-  #cat('Loading ',file_path,'\n')
-  #samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
-  #DDD.data$samples0 <- samples0
+  #load default values
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
+  cat('Loading ',file_path,'\n')
+
+  mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
+  colnames(mapping) <- c('TXNAME','GENEID')
+  rownames(mapping) <- mapping$TXNAME
+  DDD.data$mapping <- mapping
+  
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/metatable.csv"
+  cat('Loading ',file_path,'\n')
+  samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
+  DDD.data$samples0 <- samples0
   
   file_path <- "/home/jwarner/data/Arabidopsis_cold/quant/"
   cat('Loading ',file_path,'\n')
@@ -165,11 +167,8 @@ observe({
             overwrite = TRUE, recursive = TRUE, 
             copy.mode = TRUE)
   fileNames0<-gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE))
-  #fileNames0<-gsub("/quant","quant", fileNames0)
-  cat("Done only once","\n")
+
   DDD.data$quant_fileNames <- fileNames0
-  #DDD.data$quant_fileNames <-gsub("/quant","quant",DDD.data$quant_fileNames)
-  #cat(DDD.data$quant_fileNames,"\n")
 })
 
 ##----------Step 3: Inputs of 3D analysis------------
