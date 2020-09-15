@@ -165,7 +165,7 @@ observe({
             overwrite = TRUE, recursive = TRUE, 
             copy.mode = TRUE)
   DDD.data$quant_fileNames <- gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE))
-  DDD.data$quant_fileNames <-gsub("/quant","quant",DDD.data$quant_fileNames)
+  #DDD.data$quant_fileNames <-gsub("/quant","quant",DDD.data$quant_fileNames)
   cat(DDD.data$quant_fileNames,"\n")
 })
 
