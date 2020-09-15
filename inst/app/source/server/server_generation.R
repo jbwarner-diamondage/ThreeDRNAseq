@@ -585,6 +585,12 @@ output$mapping_table <- DT::renderDataTable({
   if(is.null(DDD.data$mapping))
     return(NULL)
   DT::datatable(DDD.data$mapping[1:8,],extensions = 'Buttons',options = list(
+    paging = TRUE,
+    searching = TRUE,
+    fixedColumns = TRUE,
+    autoWidth = TRUE,
+    ordering = TRUE,
+    dom = 'tB',
     buttons = c('copy', 'csv', 'excel')
   ),
   
@@ -595,11 +601,7 @@ output$sample_table <- DT::renderDataTable({
   if(is.null(DDD.data$samples0))
     return(NULL)
   if(is.null(DDD.data$samples))
-    DT::datatable(DDD.data$samples0,extensions = 'Buttons',options = list(
-      buttons = c('copy', 'csv', 'excel')
-    ),
-    
-    class = "display") else DDD.data$samples 
+    DDD.data$samples0 else DDD.data$samples
 })
 
 ##----------Step 4: Generate gene and transcript read counts and TPMs------------
