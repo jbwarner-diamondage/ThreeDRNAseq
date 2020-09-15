@@ -156,18 +156,18 @@ observe({
   #samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
   #DDD.data$samples0 <- samples0
   
-  #file_path <- "/home/jwarner/data/Arabidopsis_cold/quant/"
-  #cat('Loading ',file_path,'\n')
+  file_path <- "/home/jwarner/data/Arabidopsis_cold/quant/"
+  cat('Loading ',file_path,'\n')
 
-  #fileNames0 <- list.files(file_path,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
+  fileNames0 <- list.files(file_path,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
   
-  #file.copy(from=file_path, to=DDD.data$upload_folder, 
-  #          overwrite = TRUE, recursive = TRUE, 
-  #          copy.mode = TRUE)
-  #fileNames0<-gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE))
-  #fileNames0<-gsub("/quant","quant", fileNames0)
+  file.copy(from=file_path, to=DDD.data$upload_folder, 
+            overwrite = TRUE, recursive = TRUE, 
+            copy.mode = TRUE)
+  fileNames0<-gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE))
+  fileNames0<-gsub("/quant","quant", fileNames0)
   cat("Done only once","\n")
-  #DDD.data$quant_fileNames <-  fileNames0
+  DDD.data$quant_fileNames <- fileNames0
   #DDD.data$quant_fileNames <-gsub("/quant","quant",DDD.data$quant_fileNames)
   #cat(DDD.data$quant_fileNames,"\n")
 })
