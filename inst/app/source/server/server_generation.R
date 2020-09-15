@@ -594,7 +594,7 @@ output$mapping_table <- DT::renderDataTable({
     dom = 'tB',
     buttons = c('copy', 'csv', 'excel')
   ),
-  
+  rownames= FALSE,
   class = "display")
 })
 
