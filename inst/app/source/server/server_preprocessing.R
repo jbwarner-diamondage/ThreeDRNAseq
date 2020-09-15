@@ -82,7 +82,14 @@ observe({
 output$RNAseq_datainfo <- DT::renderDataTable({
   if(is.null(DDD.data$RNAseq_info))
     return(NULL)
-  datatable(DDD.data$RNAseq_info,options = list(pageLength = 20))
+  datatable(DDD.data$RNAseq_info,options = list(pageLength = 20,paging = TRUE,
+                                                searching = TRUE,
+                                                fixedColumns = TRUE,
+                                                autoWidth = TRUE,
+                                                ordering = TRUE,
+                                                dom = 'tB',
+                                                buttons = c('copy', 'csv', 'excel')
+                                                ))
 })
 
 ##-------------- > mean-variance plots---------------
