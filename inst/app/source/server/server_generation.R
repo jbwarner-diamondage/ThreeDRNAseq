@@ -161,12 +161,15 @@ observe({
 
   #fileNames0 <- list.files(file_path,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
   
-  #file.copy(from=file_path, to=DDD.data$upload_folder, 
-  #          overwrite = TRUE, recursive = TRUE, 
-   #         copy.mode = TRUE)
-  #DDD.data$quant_fileNames <- gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE))
+  file.copy(from=file_path, to=DDD.data$upload_folder, 
+            overwrite = TRUE, recursive = TRUE, 
+            copy.mode = TRUE)
+  fileNames0<-gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE))
+  fileNames0<-gsub("/quant","quant", fileNames0)
+  
+  DDD.data$quant_fileNames <-  fileNames0
   #DDD.data$quant_fileNames <-gsub("/quant","quant",DDD.data$quant_fileNames)
-  #cat(DDD.data$quant_fileNames,"\n")
+  cat(DDD.data$quant_fileNames,"\n")
 })
 
 ##----------Step 3: Inputs of 3D analysis------------
