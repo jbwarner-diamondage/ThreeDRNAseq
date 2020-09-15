@@ -168,7 +168,12 @@ observe({
   #fileNames0 <- fileNames0[idx]
   #name.idx <- basename(dirname(fileNames0))
   #names(fileNames0) <- name.idx
-  DDD.data$quant_fileNames <- list.files(file_path,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
+  fileNames0 <- list.files(file_path,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
+  
+  file.copy(from=filestocopy, to=DDD.data$upload_folder, 
+            overwrite = TRUE, recursive = FALSE, 
+            copy.mode = TRUE)
+  DDD.data$quant_fileNames <- list.files(DDD.data$upload_folder,full.names = TRUE,pattern="quant.sf",recursive=TRUE)
   cat(DDD.data$quant_fileNames)
 })
 
