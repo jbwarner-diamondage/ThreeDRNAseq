@@ -510,7 +510,7 @@ observeEvent(input$samples_update,{
     return(NULL)
   }
 
-  quant_fileNames <- file.path(DDD.data$upload_folder,DDD.data$quant_fileNames)#[quantfile2check])
+  quant_fileNames <- file.path(DDD.data$upload_folder,DDD.data$quant_fileNames[quantfile2check])
   cat("Checking files ",quant_fileNames)
   if(any(file.exists(quant_fileNames)==F)){
     showmessage('Transcript quantification files are not found. Please double check: (1) whether you have uploaded the quantification compressed folder and
