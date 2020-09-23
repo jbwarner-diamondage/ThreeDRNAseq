@@ -585,28 +585,29 @@ output$mapping_table <- DT::renderDataTable({
   if(is.null(DDD.data$mapping))
     return(NULL)
   DDD.data$mapping[1:20,]
-#   DT::datatable(DDD.data$mapping[1:8,],extensions = 'Buttons',rownames= FALSE
-# ,options = list(
-#     paging = TRUE,
-#     searching = TRUE,
-#     fixedColumns = TRUE,
-#     autoWidth = TRUE,
-#     ordering = TRUE,
-#     dom = 'tB',
-#     buttons = c('copy', 'csv', 'excel')
-#   ),
-#   rownames= FALSE,
-#   class = "display")
+   DT::datatable(DDD.data$mapping[1:8,],
+                 extensions = 'Buttons',
+                 rownames= FALSE,
+                 options = list(
+                   paging = TRUE,
+                   searching = TRUE,
+                   fixedColumns = TRUE,
+                   autoWidth = TRUE,
+                   ordering = TRUE,
+                   dom = 'tB',
+                   buttons = c('copy', 'csv', 'excel')
+                 ),
+   class = "display")
 })
 
 output$sample_table <- DT::renderDataTable({
   if(is.null(DDD.data$samples0))
     return(NULL)
   if(is.null(DDD.data$samples))
-    DT::datatable(DDD.data$samples0
-                  ,extensions = 'Buttons'
-                  ,rownames= FALSE
-                  ,options = list(
+    DT::datatable(DDD.data$samples0,
+                  extensions = 'Buttons',
+                  rownames= FALSE,
+                  options = list(
                     paging = TRUE,
                     searching = TRUE,
                     fixedColumns = TRUE,
