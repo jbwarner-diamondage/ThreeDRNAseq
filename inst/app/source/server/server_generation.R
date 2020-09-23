@@ -147,43 +147,43 @@ observe({
   
   #load default values
   #file_path <- "/home/jwarner/data/Arabidopsis_cold/mapping.csv"
-  if(exists("DEFAULT_MAPPING_PATH")){
-    file_path <- DEFAULT_MAPPING_PATH 
-    cat('Loading ',file_path,'\n')
-    mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
-    colnames(mapping) <- c('TXNAME','GENEID')
-    rownames(mapping) <- mapping$TXNAME
-    DDD.data$mapping <- mapping
-  }
-  if(exists("DEFAULT_META_PATH")){
-    file_path <- DEFAULT_META_PATH 
-    cat('Loading ',file_path,'\n')
-    samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
-    DDD.data$samples0 <- samples0
-  }
-  
-  if(!exists("DEFAULT_QUANT_METHOD")){
-    DEFAULT_QUANT_METHOD<-"salmon"
-  }
-  
-  if(DEFAULT_QUANT_METHOD == "salmon"){
-    pattern<-"quant.sf"
-  }else{
-    pattern<-"abundance.tsv"
-  }
-
-  
-  if(exists("DEFAULT_QUANT_PATH")){
-    file_path <- DEFAULT_QUANT_PATH
-    
-    cat('Loading ',file_path,'\n')
-    fileNames0 <- list.files(file_path,full.names = TRUE,pattern=pattern,recursive=TRUE)
-    file.copy(from=file_path, to=DDD.data$upload_folder, 
-              overwrite = TRUE, recursive = TRUE, 
-              copy.mode = TRUE)
-    fileNames0<-gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern=pattern,recursive=TRUE))
-    DDD.data$quant_fileNames <- fileNames0
-  }
+  # if(exists("DEFAULT_MAPPING_PATH")){
+  #   file_path <- DEFAULT_MAPPING_PATH 
+  #   cat('Loading ',file_path,'\n')
+  #   mapping <- read.csv(file = file_path,header = T,fileEncoding="UTF-8-BOM")
+  #   colnames(mapping) <- c('TXNAME','GENEID')
+  #   rownames(mapping) <- mapping$TXNAME
+  #   DDD.data$mapping <- mapping
+  # }
+  # if(exists("DEFAULT_META_PATH")){
+  #   file_path <- DEFAULT_META_PATH 
+  #   cat('Loading ',file_path,'\n')
+  #   samples0 <- read.csv(file_path,header = T,fileEncoding="UTF-8-BOM")
+  #   DDD.data$samples0 <- samples0
+  # }
+  # 
+  # if(!exists("DEFAULT_QUANT_METHOD")){
+  #   DEFAULT_QUANT_METHOD<-"salmon"
+  # }
+  # 
+  # if(DEFAULT_QUANT_METHOD == "salmon"){
+  #   pattern<-"quant.sf"
+  # }else{
+  #   pattern<-"abundance.tsv"
+  # }
+  # 
+  # 
+  # if(exists("DEFAULT_QUANT_PATH")){
+  #   file_path <- DEFAULT_QUANT_PATH
+  #   
+  #   cat('Loading ',file_path,'\n')
+  #   fileNames0 <- list.files(file_path,full.names = TRUE,pattern=pattern,recursive=TRUE)
+  #   file.copy(from=file_path, to=DDD.data$upload_folder, 
+  #             overwrite = TRUE, recursive = TRUE, 
+  #             copy.mode = TRUE)
+  #   fileNames0<-gsub(DDD.data$upload_folder,"",list.files(DDD.data$upload_folder,full.names = TRUE,pattern=pattern,recursive=TRUE))
+  #   DDD.data$quant_fileNames <- fileNames0
+  # }
 
     
 })
