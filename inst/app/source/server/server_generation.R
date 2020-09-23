@@ -105,7 +105,7 @@ observe({
     # DDD.data$folder <- getwd()##for test
     #DDD.data$folder <- "/home/jwarner/data/Arabidopsis_cold"
     #DDD.data$upload_folder <- "/home/jwarner/data/Arabidopsis_cold"
-    source("/home/jwarner/data/experiments/default_data.R")
+    #source("/home/jwarner/data/experiments/default_data.R")
     DDD.data$folder <- DDD.data$upload_folder
     DDD.data$data.folder <- file.path(DDD.data$folder,'data')
     DDD.data$figure.folder <- file.path(DDD.data$folder,'figure')
