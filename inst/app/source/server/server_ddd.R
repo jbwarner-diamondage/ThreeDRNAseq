@@ -700,8 +700,15 @@ output$top.stat.table <- DT::renderDataTable(DT::datatable( {
     return(NULL)
   showmessage(text = '3D statistics table',showNoteify = F)
   DDD.stat()
-},extensions = 'Buttons',options = list(
-  scrollX=T,
+},
+extensions = 'Buttons',
+options = list(
+  paging = TRUE,
+  searching = TRUE,
+  fixedColumns = TRUE,
+  autoWidth = TRUE,
+  ordering = TRUE,
+  dom = 'tB',
   buttons = c("csv", "excel", "pdf"), 
   columnDefs = list(list(className = 'dt-center',
                          targets = "_all")))) )
