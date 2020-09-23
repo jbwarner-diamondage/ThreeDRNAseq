@@ -694,20 +694,6 @@ DDD.stat <- reactive({
   return(stat)
 })
 
-DT::datatable(DDD.data$mapping[1:8,],
-              extensions = 'Buttons',
-              rownames= FALSE,
-              options = list(
-                paging = TRUE,
-                searching = TRUE,
-                fixedColumns = TRUE,
-                autoWidth = TRUE,
-                ordering = TRUE,
-                dom = 'tB',
-                buttons = c('copy', 'csv', 'excel')
-              ),
-              class = "display")
-
 
 output$top.stat.table <- DT::renderDataTable(DT::datatable( {
   if(is.null(DDD.stat()))
