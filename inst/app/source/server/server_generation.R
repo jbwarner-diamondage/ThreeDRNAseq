@@ -584,18 +584,19 @@ observeEvent(input$samples_update,{
 output$mapping_table <- DT::renderDataTable({
   if(is.null(DDD.data$mapping))
     return(NULL)
-  DT::datatable(DDD.data$mapping[1:8,],extensions = 'Buttons',rownames= FALSE
-,options = list(
-    paging = TRUE,
-    searching = TRUE,
-    fixedColumns = TRUE,
-    autoWidth = TRUE,
-    ordering = TRUE,
-    dom = 'tB',
-    buttons = c('copy', 'csv', 'excel')
-  ),
-  rownames= FALSE,
-  class = "display")
+  DDD.data$mapping[1:20,]
+#   DT::datatable(DDD.data$mapping[1:8,],extensions = 'Buttons',rownames= FALSE
+# ,options = list(
+#     paging = TRUE,
+#     searching = TRUE,
+#     fixedColumns = TRUE,
+#     autoWidth = TRUE,
+#     ordering = TRUE,
+#     dom = 'tB',
+#     buttons = c('copy', 'csv', 'excel')
+#   ),
+#   rownames= FALSE,
+#   class = "display")
 })
 
 output$sample_table <- DT::renderDataTable({
