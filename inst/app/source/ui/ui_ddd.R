@@ -751,12 +751,12 @@ tabItem('ddd',
               actionButton(inputId = 'page_before_ddd',label = '',icon = icon('arrow-left'),
                            style="color: #fff; background-color: #428bca; border-color: #2e6da4;"),
               HTML('<i>Data pre-processing</i>')
-          ),
-          div(style="display:inline-block;vertical-align:middle;margin-right:15px; float: right;",
-              HTML('<i>Time-series trend</i>'),
-              actionButton(inputId = 'page_after_ddd',label = '',icon = icon('arrow-right'),
-                           style="color: #fff; background-color: #428bca; border-color: #2e6da4;")
-          )
+          )#,
+          # div(style="display:inline-block;vertical-align:middle;margin-right:15px; float: right;",
+          #     HTML('<i>Time-series trend</i>'),
+          #     actionButton(inputId = 'page_after_ddd',label = '',icon = icon('arrow-right'),
+          #                  style="color: #fff; background-color: #428bca; border-color: #2e6da4;")
+          # )
         )
         )
 

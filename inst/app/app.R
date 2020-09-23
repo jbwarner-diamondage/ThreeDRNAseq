@@ -74,7 +74,7 @@ mainsidebar <- dashboardSidebar(
     menuItem(text = 'Data generation',tabName = 'generation',icon = icon("table"),selected = F),
     menuItem(text = 'Data pre-processing',tabName = 'preprocessing',icon = icon("filter"),startExpanded = F,selected = F),
     menuItem(text = '3D analysis',tabName = 'ddd',icon = icon("cubes",lib='font-awesome'),selected = F),
-    menuItem(text = 'Time-series trend',tabName = 'tstrend',icon = icon("chart-line",lib='font-awesome'),selected = F),
+    #menuItem(text = 'Time-series trend',tabName = 'tstrend',icon = icon("chart-line",lib='font-awesome'),selected = F),
     menuItem(text = 'Functional plot',tabName = 'function',icon = icon("cogs",lib='font-awesome'),selected = F),
     menuItem(text = 'Isoform switch',tabName = 'TSIS',icon = icon("random"),selected = F),
     menuItem(text = 'Generate report',tabName = 'report',icon = icon("file",lib='font-awesome'),selected = F)
@@ -244,36 +244,36 @@ server <- function(input, output, session) {
     shinyjs::runjs("window.scrollTo(0, 50)")
   })
   #Important information
-  observe({
-    if(DDD.data$docker_image){
-      showModal(modalDialog(
-        title = HTML("<font color='red'><strong>Important message </strong></font><i class='fa fa-bell'></i>"),
-        HTML("<div align='justify'>Many thanks for using our 3D RNA-seq App for your RNA-seq data analysis.
-             <ul>
-             <li>Due to our server capacity, it may take a while for the web browser to response when multi-users are running the analysis at the same time. Please be patience and only click the button once and wait until one step done. </li>
-             <li>The App will be disconnected from our server after a hour if there is no mouse action on the web browser.</li>
-             <li>We have fixed most of the bugs in the 3D RNA-seq App. But disconnection from server may also happen due to unexpected bugs or server maintaince. In such case, please double check your input data format or re-try later.</li> 
-             <li>If you have questions to raise or are experiencing difficulties using the 3D RNA-seq, please use the 3D RNA-seq user group: <a href='https://groups.google.com/forum/#!forum/3d-rna-seq-app-user-group' target='_blank'>https://groups.google.com/forum/#!forum/3d-rna-seq-app-user-group</a>.</li> 
-             <li>The 3D RNA-seq App can also be run through RStudio on a local computer. Please go to the Github page for details: <a href='https://github.com/wyguo/ThreeDRNAseq' target='_blank'>https://github.com/wyguo/ThreeDRNAseq</a>. </li>
-             </ul></div>"),
-        HTML('<div align="justify"><font color="red"><strong>Update: 11/12/2019 </strong></font>
-             <ul>
-             <li>Fix the bug in the "Time-series trend" page.</li>
-             <li>Improve some parts of the GUI for easy to use. </li> 
-             </ul>
-             </div>'),
-        HTML('<div align="justify"><font color="red"><strong>Update: 15/08/2020 </strong></font>
-             <ul>
-             <li>Fix bugs due to shiny R package update.</li>
-             <li>Instead of generating new dataset, a function is added to allow users to directly upload the saved
-             intermediate_data.RData object to the App. </li> 
-             </ul>
-             Update history can be found in Github Wiki page: <a href="https://github.com/wyguo/ThreeDRNAseq/wiki" target="_blank">
-             https://github.com/wyguo/ThreeDRNAseq/wiki</a>
-             </div>')
-      ))
-    }
-  })
+  # observe({
+  #   if(DDD.data$docker_image){
+  #     showModal(modalDialog(
+  #       title = HTML("<font color='red'><strong>Important message </strong></font><i class='fa fa-bell'></i>"),
+  #       HTML("<div align='justify'>Many thanks for using our 3D RNA-seq App for your RNA-seq data analysis.
+  #            <ul>
+  #            <li>Due to our server capacity, it may take a while for the web browser to response when multi-users are running the analysis at the same time. Please be patience and only click the button once and wait until one step done. </li>
+  #            <li>The App will be disconnected from our server after a hour if there is no mouse action on the web browser.</li>
+  #            <li>We have fixed most of the bugs in the 3D RNA-seq App. But disconnection from server may also happen due to unexpected bugs or server maintaince. In such case, please double check your input data format or re-try later.</li> 
+  #            <li>If you have questions to raise or are experiencing difficulties using the 3D RNA-seq, please use the 3D RNA-seq user group: <a href='https://groups.google.com/forum/#!forum/3d-rna-seq-app-user-group' target='_blank'>https://groups.google.com/forum/#!forum/3d-rna-seq-app-user-group</a>.</li> 
+  #            <li>The 3D RNA-seq App can also be run through RStudio on a local computer. Please go to the Github page for details: <a href='https://github.com/wyguo/ThreeDRNAseq' target='_blank'>https://github.com/wyguo/ThreeDRNAseq</a>. </li>
+  #            </ul></div>"),
+  #       HTML('<div align="justify"><font color="red"><strong>Update: 11/12/2019 </strong></font>
+  #            <ul>
+  #            <li>Fix the bug in the "Time-series trend" page.</li>
+  #            <li>Improve some parts of the GUI for easy to use. </li> 
+  #            </ul>
+  #            </div>'),
+  #       HTML('<div align="justify"><font color="red"><strong>Update: 15/08/2020 </strong></font>
+  #            <ul>
+  #            <li>Fix bugs due to shiny R package update.</li>
+  #            <li>Instead of generating new dataset, a function is added to allow users to directly upload the saved
+  #            intermediate_data.RData object to the App. </li> 
+  #            </ul>
+  #            Update history can be found in Github Wiki page: <a href="https://github.com/wyguo/ThreeDRNAseq/wiki" target="_blank">
+  #            https://github.com/wyguo/ThreeDRNAseq/wiki</a>
+  #            </div>')
+  #     ))
+  #   }
+  # })
   
   #=======================>> Data generation panel <<============================
   source(file.path("source/server", "server_generation.R"),local = TRUE)$value
