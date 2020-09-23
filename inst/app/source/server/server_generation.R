@@ -603,7 +603,9 @@ output$sample_table <- DT::renderDataTable({
   if(is.null(DDD.data$samples0))
     return(NULL)
   if(is.null(DDD.data$samples))
-    DT::datatable(DDD.data$samples0,extensions = 'Buttons',rownames= FALSE
+    DT::datatable(DDD.data$samples0
+                  ,extensions = 'Buttons'
+                  ,rownames= FALSE
                   ,options = list(
                     paging = TRUE,
                     searching = TRUE,
@@ -613,7 +615,6 @@ output$sample_table <- DT::renderDataTable({
                     dom = 'tB',
                     buttons = c('copy', 'csv', 'excel')
                   ),
-                  rownames= FALSE,
                   class = "display") else DDD.data$samples
 })
 
